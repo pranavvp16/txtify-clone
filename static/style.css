@@ -1,0 +1,11 @@
+html{
+    background-color: black;
+}
+
+pre {
+    display: block;
+    font-family: monospace;
+    color: aliceblue;
+    unicode-bidi: isolate;
+    margin: 1em 0px;
+}
