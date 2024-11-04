@@ -1,5 +1,4 @@
 
-
 allow_tags = [
             'p', 'br',
             'em', 'i', 'tt', 'code', 'pre', 'blockquote', 'h1',
@@ -27,20 +26,22 @@ class Txtify:
         self.soup = BeautifulSoup(content, "lxml")
 
     def extract_content(self, soup):
-        import regex as re
-
         main_content = self.soup.find("article")
         if main_content is None:
             main_content = soup.find("div", class_="content")  # Adjust class as needed
         if main_content is None:
             main_content = soup.find("main")
+        if main_content is None:
+            main_content = soup.body
 
         if main_content:
+
+            for br in main_content.find_all("br"):
+                br.replace_with("\n")
+
             content = main_content.find_all(allow_tags)
-            content = "\n".join(tag.get_text(strip=True) for tag in content)
-
-            self.content = "\n".join(re.findall(r'.{1,70}(?:\s+|$)', content))
-
+            text_content = "\n".join([i.get_text() for i in content])
+            self.content = text_content
         else:
             self.content = "Invalid URL"
 

@@ -31,19 +31,10 @@ def hello_world():
 @app.route('/<path:url>')
 def scrape(url):
     # Import required module
-    import newspaper
+    from txtify import Txtify
 
-    # Assign url
-    url = url
+    # Create an instance of Txtify
+    txtify = Txtify(url)
+    content = txtify.run()
 
-    # Extract web data
-    url_i = newspaper.Article(url="%s" % (url), language='en')
-    url_i.download()
-    url_i.parse()
-
-    # Display scrapped data
-
-    text = url_i.text
-    wrapped_text = "\n".join(re.findall(r'.{1,70}(?:\s+|$)', text))
-
-    return render_template('index.html', text=wrapped_text)
+    return render_template('index.html', text=content)
