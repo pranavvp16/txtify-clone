@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from txtify import Txtify
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,7 +9,6 @@ def hello_world():
 @app.route('/<path:url>')
 def scrape(url):
     # Import required module
-    from txtify import Txtify
 
     # Create an instance of Txtify
     txtify = Txtify(url)

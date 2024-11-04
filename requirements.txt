@@ -16,7 +16,6 @@ joblib==1.4.2
 lxml==5.3.0
 lxml_html_clean==0.3.1
 MarkupSafe==3.0.2
-newspaper3k==0.2.8
 nltk==3.9.1
 pillow==11.0.0
 python-dateutil==2.9.0.post0
@@ -30,5 +29,6 @@ soupsieve==2.6
 tinysegmenter==0.3
 tldextract==5.1.2
 tqdm==4.66.6
+typing_extensions==4.12.2
 urllib3==2.2.3
 Werkzeug==3.1.1

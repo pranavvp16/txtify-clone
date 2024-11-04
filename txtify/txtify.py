@@ -1,4 +1,5 @@
 from .newspaper import Article
+import re
 
 class Txtify(Article):
     def __init__(self, url):
@@ -17,7 +18,6 @@ class Txtify(Article):
         self.parse()
 
     def extract_content(self):
-        import regex as re
         title = self.title
         content = title + "\n" + self.text
 
