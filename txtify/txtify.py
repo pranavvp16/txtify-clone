@@ -1,4 +1,4 @@
-from newspaper import Article, languages
+from .newspaper import Article
 
 class Txtify(Article):
     def __init__(self, url):
@@ -29,7 +29,6 @@ class Txtify(Article):
     def run(self):
         self.download_content()
         self.parse_html()
-
         return self.extract_content()
 
 
