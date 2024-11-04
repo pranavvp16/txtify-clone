@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-import regex as re
 app = Flask(__name__)
 
 @app.route('/')

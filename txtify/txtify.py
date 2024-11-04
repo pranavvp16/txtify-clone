@@ -1,13 +1,5 @@
 from newspaper import Article, languages
 
-allow_tags = [
-            'p', 'br', 'a',
-            'em', 'i', 'tt', 'code', 'pre', 'blockquote', 'h1',
-            'h2', 'h3', 'h4', 'h5', 'h6',
-            'ul', 'ol', 'li', 'dl', 'dt', 'dd'
-]
-
-
 class Txtify(Article):
     def __init__(self, url):
 
@@ -19,7 +11,6 @@ class Txtify(Article):
 
     def download_content(self):
         self.download()
-        print(self.html)
 
 
     def parse_html(self):
